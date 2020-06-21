@@ -4,13 +4,17 @@
             {{ e.title }}
             
         </div>
-        <button v-on:click="findAll">Click</button>
 
     </div>
 </template>
 
 <script>
 export default {
+
+    created(){
+        this.findAll()
+    },
+
     data(){
         return{
             elements:[]
