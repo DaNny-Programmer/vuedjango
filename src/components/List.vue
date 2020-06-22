@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="box" v-for="e in elements" v-bind:key="e.id">
             <b-card
                 :title="e.title"
