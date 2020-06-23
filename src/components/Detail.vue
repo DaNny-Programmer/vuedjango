@@ -3,8 +3,8 @@
             <b-card>
             <h1>{{element.title}}</h1>
             <div class="p-3">
-                <router-link class="btn btn-danger btn-sm" :to="{name:'list-category', params:{id: element.category} }">Categoría</router-link>
-                <router-link class="ml-2 btn btn-danger btn-sm" :to="{name:'list-type', params:{id: element.type} }">Tipo</router-link>
+                <router-link class="btn btn-danger btn-sm" :to="{name:'list-category', params:{id: element.category} }">{{ category.title}}</router-link>
+                <router-link class="ml-2 btn btn-danger btn-sm" :to="{name:'list-type', params:{id: element.type} }">{{ type.title}}</router-link>
 
                 <b-card-text> {{ element.description }} </b-card-text>
             </div>
@@ -35,9 +35,10 @@ export default {
                 "/?format=json")
                 .then(res => res.json())
                 //.then(res => console.log(res[0].id))
-                .then(res => {this.element =res
-                                this.findCategory(this.element.category);
-                                this.findType(this.element.type);
+                .then(res => {
+                    this.element =res
+                    this.findCategory(this.element.category);
+                    this.findType(this.element.type);
                 });
         },
         findCategory: function(id){
@@ -54,8 +55,8 @@ export default {
                 //.then(res => console.log(res[0].id))
                 .then(res => (this.type =res));
         }
-    }
-};
+    },
+}
 </script>
 
 <style>
