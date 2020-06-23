@@ -1,21 +1,32 @@
 <template>
   <div id="app">
     <Header/>
-    <Categories/>
-    <router-link to="/">List</router-link>
-    <router-link to="/detail">Detail</router-link>
-    <router-view></router-view>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <Categories/>
+          <br>
+          <Types/>
+        </div>
+        <div class="col-md-8">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
-import Categories from './components/Type'
+import Categories from './components/Categories'
+import Types from './components/Type'
+
 export default {
   name: 'App',
   components: {
     Header,
-    Categories
+    Categories,
+    Types
   }
 }
 </script>
