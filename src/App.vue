@@ -10,7 +10,7 @@
 
 <script>
 import Header from './components/Header'
-import Categories from './components/Categories'
+import Categories from './components/Type'
 export default {
   name: 'App',
   components: {
