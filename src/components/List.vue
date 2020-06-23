@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <div class="box" v-for="e in elements" v-bind:key="e.id">
+        <router-link to="/detail">Detail</router-link>
+        <div v-for="e in elements" v-bind:key="e.id">
+            <router-link :to="'/detail/' + e.id">
             <b-card
                 :title="e.title"
             >
@@ -8,7 +10,7 @@
                 {{ e.description }}
             </b-card-text>
             </b-card>
-            
+            </router-link>            
         </div>
 
     </div>
