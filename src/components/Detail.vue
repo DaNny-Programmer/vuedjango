@@ -21,19 +21,41 @@ export default {
 
     data(){
         return{
-            element: Object
+            element: Object,
+            category: Object,
+            type : Object
 
         };
     },
     methods: {
         find: function(){
-            fetch("http://127.0.0.1:8000/api/Element/"+this.$route.params.id+"/?format=json")
+            fetch(
+                "http://127.0.0.1:8000/api/Element/" +
+                this.$route.params.id + 
+                "/?format=json")
                 .then(res => res.json())
                 //.then(res => console.log(res[0].id))
-                .then(res => this.element =res)
+                .then(res => {this.element =res
+                                this.findCategory(this.element.category);
+                                this.findType(this.element.type);
+                });
+        },
+        findCategory: function(id){
+            fetch(
+                "http://127.0.0.1:8000/api/Category/" + id + "/?format=json")
+                .then(res => res.json())
+                //.then(res => console.log(res[0].id))
+                .then(res => (this.category =res));
+        },
+        findType: function(id){
+            fetch(
+                "http://127.0.0.1:8000/api/Type/" + id + "/?format=json")
+                .then(res => res.json())
+                //.then(res => console.log(res[0].id))
+                .then(res => (this.type =res));
         }
-    },
-}
+    }
+};
 </script>
 
 <style>
